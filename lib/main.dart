@@ -65,9 +65,9 @@ class MyHomePage extends StatelessWidget {
             SizedBox(height: 16.0),
             FoodListview(),
             SizedBox(height: 16.0),
-            // SelectTypeSection(),
-            // SizedBox(height: 16.0),
-            // MenuItemList()
+            SelectTypeSection(),
+            SizedBox(height: 16.0),
+            MenuItemList()
           ],
         ),
       ),
@@ -254,7 +254,201 @@ class SelectTypeSection extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: SingleChildScrollView(
-        
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Expanded(
+              child: Container(
+                height: 92.0,
+                width: 120.0,
+                color: greenLight,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      FontAwesomeIcons.starHalf,
+                      color: green,
+                    ),
+                    const SizedBox(
+                      height: 4.0,
+                    ),
+                    Text(
+                      'Special Menu',
+                      style:
+                          TextStyle(color: green, fontWeight: FontWeight.w500),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              height: 92.0,
+              width: 120.0,
+              color: redLight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Icon(
+                    FontAwesomeIcons.solidClock,
+                    color: red,
+                  ),
+                  const SizedBox(
+                    height: 4.0,
+                  ),
+                  Text(
+                    'Book a Table',
+                    style: TextStyle(color: red, fontWeight: FontWeight.w500),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              height: 92.0,
+              width: 120.0,
+              color: blueLight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Icon(
+                    FontAwesomeIcons.solidLaugh,
+                    color: blue,
+                  ),
+                  const SizedBox(
+                    height: 4.0,
+                  ),
+                  Text(
+                    'Caterings',
+                    style: TextStyle(color: blue, fontWeight: FontWeight.w500),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class MenuItemList extends StatelessWidget {
+  const MenuItemList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const <Widget>[
+          Text(
+            'Popular Dishes',
+            style: TextStyle(fontSize: 22.0, color: Colors.black54),
+          ),
+          SizedBox(height: 16.0),
+          MenuItem(),
+          MenuItem(),
+        ],
+      ),
+    );
+  }
+}
+
+class MenuItem extends StatelessWidget {
+  const MenuItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            height: 100.0,
+            width: 100.0,
+            child: Image.network(
+              burgerImage,
+              fit: BoxFit.cover,
+            ),
+          ),
+          const SizedBox(
+            width: 16.0,
+          ),
+          Container(
+            child: Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(
+                        color: iconYellow,
+                        borderRadius: BorderRadius.circular(4.0)),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8.0, vertical: 4.0),
+                      child: Row(
+                        children: const <Widget>[
+                          Icon(
+                            Icons.star,
+                            size: 15.0,
+                          ),
+                          Text('4.5')
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 8.0,
+                  ),
+                  const Text(
+                    'Special Chicken Burger',
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                  Container(
+                    width: 200.0,
+                    child: const Text(
+                      'Chicken, Yogurt, Red chilli, Ginger paste, Carlic paste, ...',
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class MyAppBar extends StatelessWidget {
+  MyAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Icon(
+            Icons.grid_on,
+            color: Colors.grey,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              Text(
+                'Location',
+                style: TextStyle(color: Colors.black54),
+              ),
+              Text(
+                'Kab. Bogor',
+                style: TextStyle(color: ),
+              )
+            ],
+          )
+        ],
       ),
     );
   }
