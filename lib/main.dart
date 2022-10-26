@@ -23,30 +23,28 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'BelajarFlutter',
+      title                     : 'BelajarFlutter',
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      home                      : MyHomePage(),
     );
   }
 }
 
 // IMAGES
-var meatImage = 'https://i.ibb.co/5FRwHtB/unnamed.jpg';
-var foodImage = 'https://i.ibb.co/qk6PzDy/London-broil.jpg';
-var burgerImage =
-    'https://images.unsplash.com/photo-1534790566855-4cb788d389ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80';
-var chickenImage =
-    'https://images.unsplash.com/photo-1532550907401-a500c9a57435?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80';
+var meatImage    = 'https://i.ibb.co/5FRwHtB/unnamed.jpg';
+var foodImage    = 'https://i.ibb.co/qk6PzDy/London-broil.jpg';
+var burgerImage  = 'https://images.unsplash.com/photo-1534790566855-4cb788d389ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80';
+var chickenImage = 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80';
 
 // COLORS
 var textYellow = const Color(0xFFf6c24d);
 var iconYellow = const Color(0xFFf4bf47);
-var green = const Color(0xFF4caf6a);
+var green      = const Color(0xFF4caf6a);
 var greenLight = const Color(0xFFd8ebde);
-var red = const Color(0xFFf36169);
-var redLight = const Color(0xFFf2dcdf);
-var blue = const Color(0xFF398bcf);
-var blueLight = const Color(0xFFc1dbee);
+var red        = const Color(0xFFf36169);
+var redLight   = const Color(0xFFf2dcdf);
+var blue       = const Color(0xFF398bcf);
+var blueLight  = const Color(0xFFc1dbee);
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -54,14 +52,14 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: const MyActionButton(),
+      floatingActionButton        : const MyActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: const MyAppbar(),
-      body: Container(
+      bottomNavigationBar         : const MyAppbar(),
+      body                        : Container(
         child: ListView(
           children: const <Widget>[
-            // SizedBox(height: 16.0),
-            // MyAppBar(),
+            SizedBox(height: 16.0),
+            MyAppBar(),
             SizedBox(height: 16.0),
             FoodListview(),
             SizedBox(height: 16.0),
@@ -82,12 +80,12 @@ class MyActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 100.0,
-      width: 100.0,
-      child: FlutterClipPolygon(
-        sides: 6,
-        borderRadius: 0.0, // Defaults to 0.0 degrees
-        rotate: 0.0, // Defaults to 0.0 degrees
-        boxShadows: [
+      width : 100.0,
+      child : FlutterClipPolygon(
+        sides       : 6,
+        borderRadius: 0.0,   // Defaults to 0.0 degrees
+        rotate      : 0.0,   // Defaults to 0.0 degrees
+        boxShadows  : [
           PolygonBoxShadow(color: Colors.red, elevation: 1.0),
           PolygonBoxShadow(color: Colors.grey, elevation: 5.0)
         ],
@@ -95,7 +93,7 @@ class MyActionButton extends StatelessWidget {
           color: iconYellow,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
+            children         : const <Widget>[
               Icon(FontAwesomeIcons.book),
               SizedBox(height: 4.0),
               Text(
@@ -118,12 +116,12 @@ class MyAppbar extends StatelessWidget {
     return BottomAppBar(
       child: Container(
         height: 60.0,
-        child: Padding(
+        child : Padding(
           padding: const EdgeInsets.only(top: 8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          child  : Row(
+            mainAxisAlignment : MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
+            children          : <Widget>[
               Column(
                 children: const <Widget>[
                   Icon(Icons.home),
@@ -172,11 +170,11 @@ class FoodListview extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 8.0),
-      child: Container(
+      child  : Container(
         height: 160.0,
-        child: ListView(
+        child : ListView(
           scrollDirection: Axis.horizontal,
-          children: const <Widget>[
+          children       : const <Widget>[
             ItemCard(),
             ItemCard(),
             ItemCard(),
@@ -195,9 +193,9 @@ class ItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 8.0),
-      child: Container(
-        height: 160.0,
-        width: 300.0,
+      child  : Container(
+        height    : 160.0,
+        width     : 300.0,
         decoration: BoxDecoration(
           image: DecorationImage(
               image: NetworkImage(meatImage), fit: BoxFit.cover),
@@ -205,34 +203,34 @@ class ItemCard extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Container(
-              height: 160.0,
-              width: 300.0,
+              height    : 160.0,
+              width     : 300.0,
               decoration: BoxDecoration(
                   gradient: LinearGradient(
                       colors: [Colors.black.withOpacity(0.1), Colors.black],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter)),
+                      begin : Alignment.topCenter,
+                      end   : Alignment.bottomCenter)),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Column(
+              child  : Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
+                children          : <Widget>[
                   const Spacer(),
                   Text(
                     '25% OFF',
                     style: TextStyle(
-                      color: textYellow,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24.0,
+                      color        : textYellow,
+                      fontWeight   : FontWeight.bold,
+                      fontSize     : 24.0,
                       letterSpacing: 1.1,
                     ),
                   ),
                   const Text(
                     'ON FIRST 3 ORDERS',
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16.0,
+                      color        : Colors.white,
+                      fontSize     : 16.0,
                       letterSpacing: 1.1,
                     ),
                   ),
@@ -253,18 +251,18 @@ class SelectTypeSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: SingleChildScrollView(
+      child  : SingleChildScrollView(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
+          children         : <Widget>[
             Expanded(
               child: Container(
                 height: 92.0,
-                width: 120.0,
-                color: greenLight,
-                child: Column(
+                width : 120.0,
+                color : greenLight,
+                child : Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
+                  children         : <Widget>[
                     Icon(
                       FontAwesomeIcons.starHalf,
                       color: green,
@@ -283,11 +281,11 @@ class SelectTypeSection extends StatelessWidget {
             ),
             Container(
               height: 92.0,
-              width: 120.0,
-              color: redLight,
-              child: Column(
+              width : 120.0,
+              color : redLight,
+              child : Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
+                children         : <Widget>[
                   Icon(
                     FontAwesomeIcons.solidClock,
                     color: red,
@@ -304,11 +302,11 @@ class SelectTypeSection extends StatelessWidget {
             ),
             Container(
               height: 92.0,
-              width: 120.0,
-              color: blueLight,
-              child: Column(
+              width : 120.0,
+              color : blueLight,
+              child : Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
+                children         : <Widget>[
                   Icon(
                     FontAwesomeIcons.solidLaugh,
                     color: blue,
@@ -337,9 +335,9 @@ class MenuItemList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Column(
+      child  : Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const <Widget>[
+        children          : const <Widget>[
           Text(
             'Popular Dishes',
             style: TextStyle(fontSize: 22.0, color: Colors.black54),
@@ -360,13 +358,13 @@ class MenuItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
-      child: Row(
+      child  : Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
+        children          : <Widget>[
           Container(
             height: 100.0,
-            width: 100.0,
-            child: Image.network(
+            width : 100.0,
+            child : Image.network(
               burgerImage,
               fit: BoxFit.cover,
             ),
@@ -378,14 +376,17 @@ class MenuItem extends StatelessWidget {
             child: Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
+                children          : <Widget>[
                   Container(
                     decoration: BoxDecoration(
-                        color: iconYellow,
-                        borderRadius: BorderRadius.circular(4.0)),
+                        color       : iconYellow,
+                        borderRadius: BorderRadius.circular(4.0)
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 8.0, vertical: 4.0),
+                          horizontal: 8.0,
+                          vertical  : 4.0
+                      ),
                       child: Row(
                         children: const <Widget>[
                           Icon(
@@ -422,30 +423,30 @@ class MenuItem extends StatelessWidget {
 }
 
 class MyAppBar extends StatelessWidget {
-  MyAppBar({super.key});
+  const MyAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Row(
+      child  : Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Icon(
+        children         : <Widget>[
+          const Icon(
             Icons.grid_on,
             color: Colors.grey,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
+            children          : const <Widget>[
               Text(
                 'Location',
                 style: TextStyle(color: Colors.black54),
               ),
               Text(
                 'Kab. Bogor',
-                style: TextStyle(color: ),
-              )
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ],
           )
         ],
