@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title                     : 'BelajarFlutter',
-      debugShowCheckedModeBanner: false,
-      home                      : MyHomePage(),
+      debugShowCheckedModeBanner: true,
+      home                      : HomeScreen(),
     );
   }
 }

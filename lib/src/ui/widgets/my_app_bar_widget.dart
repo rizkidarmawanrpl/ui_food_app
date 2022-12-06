@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/src/config/values/strings.dart';
 
 class MyAppBarWidget extends StatelessWidget {
   const MyAppBarWidget({super.key});
@@ -18,15 +19,15 @@ class MyAppBarWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children          : const [
               Text(
-                'Location',
+                Strings.location,
                 style: TextStyle(color: Colors.black54),
               ),
               Text(
-                'Kab. Bogor',
+                Strings.kabBogor,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ],
-          )
+          ),
         ],
       ),
     );

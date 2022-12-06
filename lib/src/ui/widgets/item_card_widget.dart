@@ -14,7 +14,9 @@ class ItemCardWidget extends StatelessWidget {
         width     : 300.0,
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(Strings.meatImage), fit: BoxFit.cover),
+            image: NetworkImage(Strings.meatImage),
+            fit  : BoxFit.cover
+          ),
         ),
         child: Stack(
           children: [
