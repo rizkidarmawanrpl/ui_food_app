@@ -8,16 +8,16 @@ class FoodListviewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 8.0),
+      padding: const EdgeInsets.only(left: 8),
       child  : SizedBox(
-        height: 160.0,
+        height: 160,
         child : ListView(
           scrollDirection: Axis.horizontal,
           children       : const [
-            ItemCardWidget(),
-            ItemCardWidget(),
-            ItemCardWidget(),
-            ItemCardWidget(),
+            ItemCardWidget(persen: '25', desc: '1'),
+            ItemCardWidget(persen: '99.9', desc: '2'),
+            ItemCardWidget(persen: '10', desc: '3'),
+            ItemCardWidget(persen: '25', desc: '4'),
           ],
         ),
       ),

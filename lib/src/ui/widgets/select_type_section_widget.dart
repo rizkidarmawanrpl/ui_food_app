@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:food_app/src/config/utils/commons.dart';
 import 'package:food_app/src/config/values/colors.dart' as color;
+import 'package:food_app/src/config/values/strings.dart';
 
 class SelectTypeSectionWidget extends StatelessWidget {
   const SelectTypeSectionWidget({super.key});
@@ -8,78 +10,64 @@ class SelectTypeSectionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       child  : SingleChildScrollView(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children         : [
             Expanded(
-              child: Container(
-                height: 92.0,
-                width : 120.0,
-                color : color.Colors.greenLight,
-                child : Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children         : const [
-                    Icon(
-                      FontAwesomeIcons.starHalf,
-                      color: color.Colors.green,
-                    ),
-                    SizedBox(
-                      height: 4.0,
-                    ),
-                    Text(
-                      'Special Menu',
-                      style:
-                          TextStyle(color: color.Colors.green, fontWeight: FontWeight.w500),
-                    )
-                  ],
-                ),
+              child: _typeSection(
+                context,
+                color    : color.Colors.greenLight,
+                icon     : FontAwesomeIcons.starHalf,
+                iconColor: color.Colors.green,
+                text     : Strings.specialMenu,
               ),
             ),
-            Container(
-              height: 92.0,
-              width : 120.0,
-              color : color.Colors.redLight,
-              child : Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children         : const [
-                  Icon(
-                    FontAwesomeIcons.solidClock,
-                    color: color.Colors.red,
-                  ),
-                  SizedBox(
-                    height: 4.0,
-                  ),
-                  Text(
-                    'Book a Table',
-                    style: TextStyle(color: color.Colors.red, fontWeight: FontWeight.w500),
-                  )
-                ],
-              ),
+            _typeSection(
+              context,
+              color    : color.Colors.redLight,
+              icon     : FontAwesomeIcons.solidClock,
+              iconColor: color.Colors.red,
+              text     : Strings.bookATable,
             ),
-            Container(
-              height: 92.0,
-              width : 120.0,
-              color : color.Colors.blueLight,
-              child : Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children         : const [
-                  Icon(
-                    FontAwesomeIcons.solidLaugh,
-                    color: color.Colors.blue,
-                  ),
-                  SizedBox(
-                    height: 4.0,
-                  ),
-                  Text(
-                    'Caterings',
-                    style: TextStyle(color: color.Colors.blue, fontWeight: FontWeight.w500),
-                  )
-                ],
-              ),
+            _typeSection(
+              context,
+              color    : color.Colors.blueLight,
+              icon     : FontAwesomeIcons.solidFaceLaugh,
+              iconColor: color.Colors.blue,
+              text     : Strings.catering,
             )
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _typeSection(BuildContext context, {color = Color, icon = IconData, iconColor = Color, text = String}) {
+    return Material(
+      color: color,
+      child: InkWell(
+        onTap: () { Commons.onTapMenu(context, text: text); },
+        child: SizedBox(
+          height: 92,
+          width : 120,
+          child : Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children         : [
+              Icon(
+                icon,
+                color: iconColor,
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Text(
+                text,
+                style: TextStyle(color: iconColor, fontWeight: FontWeight.w500),
+              )
+            ],
+          ),
         ),
       ),
     );

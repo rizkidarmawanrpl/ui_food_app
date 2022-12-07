@@ -1,63 +1,92 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/src/config/utils/commons.dart';
 import 'package:food_app/src/config/values/strings.dart';
 import 'package:food_app/src/config/values/colors.dart' as color;
 
 class ItemCardWidget extends StatelessWidget {
-  const ItemCardWidget({super.key});
+  final String persen;
+  final String desc;
+
+  const ItemCardWidget({super.key, required this.persen, required this.desc});
+
+  final double itemCardHeight = 160;
+  final double itemCardWidth  = 300;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 8.0),
+      padding: const EdgeInsets.only(right: 8),
       child  : Container(
-        height    : 160.0,
-        width     : 300.0,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
+        height    : itemCardHeight,
+        width     : itemCardWidth,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          image       : const DecorationImage(
             image: NetworkImage(Strings.meatImage),
-            fit  : BoxFit.cover
+            fit  : BoxFit.cover,
           ),
         ),
         child: Stack(
           children: [
             Container(
-              height    : 160.0,
-              width     : 300.0,
+              height    : itemCardHeight,
+              width     : itemCardWidth,
               decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [Colors.black.withOpacity(0.1), Colors.black],
-                      begin : Alignment.topCenter,
-                      end   : Alignment.bottomCenter)),
+                borderRadius: BorderRadius.circular(10),
+                gradient    : LinearGradient(
+                  colors: [Colors.black, Colors.black.withOpacity(0.01)],
+                  begin : Alignment.bottomCenter,
+                  end   : Alignment.topCenter
+                )
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16),
               child  : Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children          : const [
-                  Spacer(),
+                children          : [
+                  const Spacer(),
                   Text(
-                    '25% OFF',
-                    style: TextStyle(
+                    _persenOff(persen),
+                    style: const TextStyle(
                       color        : color.Colors.yellowText,
                       fontWeight   : FontWeight.bold,
-                      fontSize     : 24.0,
+                      fontSize     : 24,
                       letterSpacing: 1.1,
                     ),
                   ),
                   Text(
-                    'ON FIRST 3 ORDERS',
-                    style: TextStyle(
+                    _persenDesc(desc),
+                    style: const TextStyle(
                       color        : Colors.white,
-                      fontSize     : 16.0,
+                      fontSize     : 16,
                       letterSpacing: 1.1,
                     ),
                   ),
                 ],
               ),
             ),
+            Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: () => Commons.onTapDialogMenu(context, text: _persenOff(persen)),
+                child: Ink(
+                  width : itemCardWidth,
+                  height: itemCardHeight,
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  String _persenOff(String text) {
+    return "$text% OFF";
+  }
+
+  String _persenDesc(String text) {
+    return "On First $text Orders".toUpperCase();
   }
 }
