@@ -48,7 +48,7 @@ class SelectTypeSectionWidget extends StatelessWidget {
     return Material(
       color: color,
       child: InkWell(
-        onTap: () { Commons.onTapMenu(context, text: text); },
+        onTap: () {},
         child: SizedBox(
           height: 92,
           width : 120,

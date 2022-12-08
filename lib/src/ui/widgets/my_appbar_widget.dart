@@ -47,7 +47,7 @@ class MyAppbarWidget extends StatelessWidget {
   Widget _menuIcons({icon = IconData, text = String, onTap = Function}) {
     return InkWell(
       borderRadius: BorderRadius.circular(30),
-      onTap       : onTap,
+      onTap       : () {},
       child       : Padding(
         padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 15),
         child  : Column(

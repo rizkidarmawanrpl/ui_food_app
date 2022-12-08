@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/src/config/utils/commons.dart';
 import 'package:food_app/src/config/values/strings.dart';
 import 'package:food_app/src/config/values/colors.dart' as color;
 
@@ -69,7 +68,8 @@ class ItemCardWidget extends StatelessWidget {
             Material(
               color: Colors.transparent,
               child: InkWell(
-                onTap: () => Commons.onTapDialogMenu(context, text: _persenOff(persen)),
+                splashColor: Colors.amber[300],
+                onTap: () => {},
                 child: Ink(
                   width : itemCardWidth,
                   height: itemCardHeight,
