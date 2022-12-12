@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:food_app/src/config/utils/commons.dart';
 import 'package:food_app/src/config/values/colors.dart' as color;
 import 'package:food_app/src/config/values/strings.dart';
 

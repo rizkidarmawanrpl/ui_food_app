@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_polygon_clipper/flutter_polygon_clipper.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:food_app/src/config/utils/commons.dart';
 import 'package:food_app/src/config/values/colors.dart' as color;
 import 'package:food_app/src/config/values/strings.dart';
+import 'package:food_app/src/routing/routes.dart';
+import 'package:get/get.dart';
 
 class MyActionButtonWidget extends StatelessWidget {
   const MyActionButtonWidget({super.key});
@@ -34,7 +35,7 @@ class MyActionButtonWidget extends StatelessWidget {
             )
           ],
         ),
-        onPressed: () => Commons.onTapDialogMenu(context, text: Strings.menu),
+        onPressed: () => Get.toNamed(Routes.menu, arguments: {"name": "Rizki", "count": "10"}),
       ),
     );
   }
