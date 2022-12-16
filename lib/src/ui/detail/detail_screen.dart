@@ -7,9 +7,9 @@ import 'package:get/get.dart';
 class DetailScreen extends StatelessWidget {
   DetailScreen({super.key});
 
-  final MenuController menuController = Get.put(MenuController());
+  final MenuController menuController     = Get.put(MenuController());
   final DetailController detailController = Get.put(DetailController());
-  final param = Get.parameters;
+  final param                             = Get.parameters;
 
   @override
   Widget build(BuildContext context) {
