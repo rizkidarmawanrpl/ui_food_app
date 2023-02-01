@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/src/config/utils/commons.dart';
 import 'package:food_app/src/config/values/strings.dart';
+import 'package:food_app/src/routing/routes.dart';
+import 'package:get/get.dart';
 
 class MyAppbarWidget extends StatelessWidget {
   const MyAppbarWidget({super.key});
@@ -23,7 +25,7 @@ class MyAppbarWidget extends StatelessWidget {
             _menuIcons(
               icon : Icons.search,
               text : Strings.search,
-              onTap: () { Commons.onTapMenu(context, text: Strings.search); },
+              onTap: () { Get.toNamed(Routes.search); },
             ),
             Container(
               width: 100.0,
@@ -47,7 +49,7 @@ class MyAppbarWidget extends StatelessWidget {
   Widget _menuIcons({icon = IconData, text = String, onTap = Function}) {
     return InkWell(
       borderRadius: BorderRadius.circular(30),
-      onTap       : () {},
+      onTap       : onTap,
       child       : Padding(
         padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 15),
         child  : Column(

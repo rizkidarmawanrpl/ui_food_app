@@ -36,11 +36,11 @@ class DetailScreen extends StatelessWidget {
                 onPressed: () { detailController.updateCount(); },
                 child: const Text('+'),
               ),
-              GestureDetector(
-                onTap: () {
+              ElevatedButton(
+                onPressed: () {
                   Get.back(result: detailController.countSimple);
                 },
-                child: const Text('Back Previous'),
+                child: const Text('Back'),
               ),
             ],
           )),

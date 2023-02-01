@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:food_app/src/config/values/colors.dart' as color;
 import 'package:food_app/src/controllers/menu_controller.dart';
@@ -35,8 +34,6 @@ class MenuScreen extends StatelessWidget {
           const SizedBox(height: 10),
           ElevatedButton(
               onPressed: () async {
-                log(menuController.countDetail.toString());
-                log(menuController.count.toString());
                 var result = await Get.toNamed(
                   "${Routes.detail}/12345",
                   arguments: {
@@ -45,9 +42,6 @@ class MenuScreen extends StatelessWidget {
                 ) ?? menuController.countDetail;
 
                 menuController.countDetail = result;
-
-                log("OKOK");
-                log(result.toString());
               },
               child: const Text('Detail')),
         ],

@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class Commons {
   static void onTapMenu(BuildContext context, {text = String}) {
     final snackBar = SnackBar(
-      content: Text(text),
+      content : Text(text),
       behavior: SnackBarBehavior.floating,
-      action: SnackBarAction(
-        label: 'Undo',
+      action  : SnackBarAction(
+        label    : 'Undo',
         onPressed: () {},
       ),
     );
@@ -18,7 +18,7 @@ class Commons {
     return showDialog<String>(
       context: context,
       builder: (BuildContext contex) => AlertDialog(
-        title: const Text('Informasi'),
+        title  : const Text('Informasi'),
         content: Text(text),
         actions: [
           TextButton(onPressed: () => Navigator.pop(context, 'OK'), child: const Text('OK')),
