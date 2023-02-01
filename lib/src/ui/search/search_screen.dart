@@ -20,7 +20,7 @@ class SearchScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children         : [
           Center(
-            child: Obx(() => searchController.isLoading == true.obs? const CircularProgressIndicator() : Text("Hello, ${searchController.fullName}")),
+            child: Obx(() => searchController.isLoading == true.obs? const CircularProgressIndicator() : Text("Hello, ${searchController.userData.value.firstName}")),
           ),
         ],
       ),
