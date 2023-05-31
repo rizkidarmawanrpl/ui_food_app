@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:food_app/src/config/utils/http_service.dart';
 import 'package:food_app/src/models/single_user_response.dart';
 import 'package:food_app/src/models/user_model.dart';
-import 'package:get/get.dart';
 
 class UserRepo {
   late HttpService httpService;

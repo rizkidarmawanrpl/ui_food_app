@@ -4,12 +4,14 @@ import 'package:dio/dio.dart';
 class HttpService {
   late Dio dio;
 
-  final baseUrl = "https://reqres.in/";
+  static String baseUrl = "https://reqres.in/";
+
+  final baseOption = BaseOptions(
+    baseUrl: baseUrl,
+  );
 
   HttpService() {
-    dio = Dio(BaseOptions(
-      baseUrl: baseUrl,
-    ));
+    dio = Dio(baseOption);
 
     initializeInterceptors();
   }
@@ -18,9 +20,7 @@ class HttpService {
     Response response;
     
     try {
-      response = await Dio(BaseOptions(
-        baseUrl: baseUrl,
-      )).get(endPoint);
+      response = await Dio(baseOption).get(endPoint);
 
       return response;
     } on DioError catch (e) {

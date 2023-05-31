@@ -1,4 +1,3 @@
-import 'package:food_app/src/controllers/search_binding.dart';
 import 'package:food_app/src/routing/routes.dart';
 import 'package:food_app/src/ui/detail/detail_screen.dart';
 import 'package:food_app/src/ui/home/home_screen.dart';
@@ -25,7 +24,6 @@ class RoutePages {
     GetPage(
       name      : Routes.search,
       page      : () => SearchScreen(),
-      // binding   : SearchBinding(),
       transition: Transition.fade,
     ),
   ];

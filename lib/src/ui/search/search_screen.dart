@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/src/config/values/colors.dart' as color;
+import 'package:food_app/src/config/values/strings.dart';
 import 'package:food_app/src/controllers/search_controller.dart';
 import 'package:get/get.dart';
 
